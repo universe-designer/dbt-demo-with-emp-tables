@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: scott
+    database: PC_DBT_DB
+    schema: SCOTT
+    tables:
+      - name: emp
+      - name: dept
