@@ -8,7 +8,11 @@ source as (
 
 renamed as (
 
-    select empno AS mitarbeiter_nr, ename AS name, job AS rolle, deptno AS abteilung_nr
+    select empno AS mitarbeiter_nr, 
+    ename AS name, 
+    job AS rolle, 
+    deptno AS abteilung_nr,
+    hiredate AS einstellung_datum
 
     from source
 
