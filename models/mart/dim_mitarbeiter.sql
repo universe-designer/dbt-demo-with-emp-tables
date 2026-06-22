@@ -1,3 +1,7 @@
+
+
+{% set manager_roles = ["PRESIDENT", "MANAGER"] %}
+
 with 
 
 stage as (
@@ -8,7 +12,14 @@ stage as (
 
 dimension as (
 
-    select mitarbeiter_nr, name, rolle
+    select mitarbeiter_nr, 
+    CASE 
+    {% for manager_role in manager_roles %}
+    WHEN rolle = '{{manager_role}}' THEN 1 
+    {% endfor %}
+    ELSE 0 
+    END AS manager_flag,
+    name, rolle
     from stage
     WHERE abteilung_nr != 40
 
